@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<script src="index.js"></script>
+</head>
+<style type="text/css">
+	* {
+		margin: 0;
+		padding: 0;
+	}
+
+	img {
+		border: 0;
+	}
+
+	ol,
+	ul,
+	li {
+		list-style: none;
+	}
+	button{padding: 10px;}
+.road {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	border: 1px solid #ccc;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 50px;
+	height: 50px;
+}
+
+#map_test {
+	width: 500px;
+	height: 300px;
+	position: relative;
+}
+#map_box {
+	width: 300px;
+	height: 180px;
+	position: relative;
+}
+#map_big_road {
+	width: 300px;
+	height: 180px;
+	position: relative;
+}
+#map_big_eye {
+	width: 300px;
+	height: 180px;
+	position: relative;
+}
+#map_small_road {
+	width: 300px;
+	height: 180px;
+	position: relative;
+}
+#map_small_strong_road {
+	width: 300px;
+	height: 180px;
+	position: relative;
+}
+.map_road{
+	border: 1px solid red;
+	background: url('data:image/svg+xml;utf8,	<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="30" height="30"><rect x="0" y="0" width="30" height="30" fill="transparent" stroke="rgb(214,214,214)" stroke-width="1" stroke-opacity="1"></rect></svg>') repeat;
+}
+.svg-symbol{width: 30px;height: 30px;display: inline-block;}
+.Banker1-BP-PP_svg{background-image: url("svg/Banker1-BP-PP.svg");}
+.Banker-BP_svg{background-image: url("svg/Banker-BP.svg");}
+.Banker-PP_svg{background-image: url("svg/Banker-PP.svg");}
+.Banker_svg{background-image: url("svg/Banker.svg");}
+.Banker1-1_svg{background-image: url("svg/Banker1-1.svg");}
+.Banker1-2_svg{background-image: url("svg/Banker1-2.svg");}
+.Banker1-3_svg{background-image: url("svg/Banker1-3.svg");}
+.Banker1-4_svg{background-image: url("svg/Banker1-4.svg");}
+.Banker1-5_svg{background-image: url("svg/Banker1-5.svg");}
+.Banker1-6_svg{background-image: url("svg/Banker1-6.svg");}
+.Banker1-7_svg{background-image: url("svg/Banker1-7.svg");}
+.Banker1-8_svg{background-image: url("svg/Banker1-8.svg");}
+.Banker1-9_svg{background-image: url("svg/Banker1-9.svg");}
+.Banker1-BP_svg{background-image: url("svg/Banker1-BP.svg");}
+.Banker1-BP_svg{background-image: url("svg/Banker1-BP.svg");}
+.Banker1-PP_svg{background-image: url("svg/Banker1-PP.svg");}
+.Banker1_svg{background-image: url("svg/Banker1.svg");}
+.Banker3_svg{background-image: url("svg/Banker3.svg");}
+.Banker4_svg{background-image: url("svg/Banker4.svg");}
+
+.Blue_svg{background-image: url("svg/Blue.svg");}
+.Dragon_svg{background-image: url("svg/Dragon.svg");}
+.Eye-Blue_svg{background-image: url("svg/Eye-Blue.svg");}
+.Eye-Red_svg{background-image: url("svg/Eye-Red.svg");}
+
+.Lucky-BP-PP_svg{background-image: url("svg/Lucky-BP-PP.svg");}
+.Lucky-BP_svg{background-image: url("svg/Lucky-BP.svg");}
+.Lucky-PP_svg{background-image: url("svg/Lucky-PP.svg");}
+.Lucky_svg{background-image: url("svg/Lucky.svg");}
+
+.m-13_svg{background-image: url("svg/m-13.svg");}
+.m-14_svg{background-image: url("svg/m-14.svg");}
+.m-15_svg{background-image: url("svg/m-15.svg");}
+.m-16_svg{background-image: url("svg/m-16.svg");}
+.m-17_svg{background-image: url("svg/m-17.svg");}
+
+.Player-BP-PP_svg{background-image: url("svg/Player-BP-PP.svg");}
+.Player-BP_svg{background-image: url("svg/Player-BP.svg");}
+.Player-PP_svg{background-image: url("svg/Player-PP.svg");}
+.Player_svg{background-image: url("svg/Player.svg");}
+
+.Player1-1_svg{background-image: url("svg/Player1-1.svg");}
+.Player1-2_svg{background-image: url("svg/Player1-2.svg");}
+.Player1-3_svg{background-image: url("svg/Player1-3.svg");}
+.Player1-4_svg{background-image: url("svg/Player1-4.svg");}
+.Player1-5_svg{background-image: url("svg/Player1-5.svg");}
+.Player1-6_svg{background-image: url("svg/Player1-6.svg");}
+.Player1-7_svg{background-image: url("svg/Player1-7.svg");}
+.Player1-8_svg{background-image: url("svg/Player1-8.svg");}
+.Player1-9_svg{background-image: url("svg/Player1-9.svg");}
+
+.Player1-BP-PP_svg{background-image: url("svg/Player1-BP-PP.svg");}
+.Player1-BP_svg{background-image: url("svg/Player1-BP.svg");}
+.Player1-PP_svg{background-image: url("svg/Player1-PP.svg");}
+.Player1_svg{background-image: url("svg/Player1.svg");}
+.Player3_svg{background-image: url("svg/Player3.svg");}
+.Player4_svg{background-image: url("svg/Player4.svg");}
+
+.qq-36_svg{background-image: url("svg/qq-36.svg");}
+.qq-37_svg{background-image: url("svg/qq-37.svg");}
+.qq-38_svg{background-image: url("svg/qq-38.svg");}
+.qq-39_svg{background-image: url("svg/qq-39.svg");}
+
+.Red_svg{background-image: url("svg/Red.svg");}
+.sk_svg{background-image: url("svg/sk.svg");}
+.Small-Blue_svg{background-image: url("svg/Small-Blue.svg");}
+.Small-Red_svg{background-image: url("svg/Small-Red.svg");}
+.sz_svg{background-image: url("svg/sz.svg");}
+
+.Tie-BP-PP_svg{background-image: url("svg/Tie-BP-PP.svg");}
+.Tie-BP_svg{background-image: url("svg/Tie-BP.svg");}
+.Tie-PP_svg{background-image: url("svg/Tie-PP.svg");}
+.Tie_svg{background-image: url("svg/Tie.svg");}
+
+.Tie1-1_svg{background-image: url("svg/Tie1-1.svg");}
+.Tie1-2_svg{background-image: url("svg/Tie1-2.svg");}
+.Tie1-3_svg{background-image: url("svg/Tie1-3.svg");}
+.Tie1-4_svg{background-image: url("svg/Tie1-4.svg");}
+.Tie1-5_svg{background-image: url("svg/Tie1-5.svg");}
+.Tie1-6_svg{background-image: url("svg/Tie1-6.svg");}
+.Tie1-7_svg{background-image: url("svg/Tie1-7.svg");}
+.Tie1-8_svg{background-image: url("svg/Tie1-8.svg");}
+.Tie1-9_svg{background-image: url("svg/Tie1-9.svg");}
+
+.Tie1-BP-PP_svg{background-image: url("svg/Tie1-BP-PP.svg");}
+
+.Tie1-BP_svg{background-image: url("svg/Tie1-BP.svg");}
+.Tie1-PP_svg{background-image: url("svg/Tie1-PP.svg");}
+
+.Tie1_svg{background-image: url("svg/Tie1.svg");}
+.Tiger_svg{background-image: url("svg/Tiger.svg");}
+</style>
+
+<body>
+<h1>仅学习,逻辑锻炼使用！</h1>
+<p><a href="https://www.ag916.com/publicity/game/rules/roadmap.html" target="_blank" rel="noopener noreferrer">规则</a></p>
+
+<div class="svg-symbol Banker1-BP-PP_svg"></div>
+
+<br>
+
+<div class="svg-symbol Banker-BP_svg"></div>
+<div class="svg-symbol Banker-PP_svg"></div>
+<div class="svg-symbol Banker_svg"></div>
+<br>
+
+<div class="svg-symbol Banker1-1_svg"></div>
+<div class="svg-symbol Banker1-2_svg"></div>
+<div class="svg-symbol Banker1-3_svg"></div>
+<div class="svg-symbol Banker1-4_svg"></div>
+<div class="svg-symbol Banker1-5_svg"></div>
+<div class="svg-symbol Banker1-6_svg"></div>
+<div class="svg-symbol Banker1-7_svg"></div>
+<div class="svg-symbol Banker1-8_svg"></div>
+<div class="svg-symbol Banker1-9_svg"></div>
+<br>
+
+<div class="svg-symbol Banker1-BP-PP_svg"></div>
+<div class="svg-symbol Banker1-BP_svg"></div>
+<div class="svg-symbol Banker1-PP_svg"></div>
+<div class="svg-symbol Banker1_svg"></div>
+
+<br>
+<div class="svg-symbol Player3_svg"></div>
+<div class="svg-symbol Banker3_svg"></div>
+
+<br>
+<div class="svg-symbol Banker4_svg"></div>
+<div class="svg-symbol Blue_svg"></div>
+
+<br>
+
+<div class="svg-symbol Dragon_svg"></div>
+<div class="svg-symbol Tiger_svg"></div>
+
+<br>
+<div class="svg-symbol Eye-Blue_svg"></div>
+<div class="svg-symbol Eye-Red_svg"></div>
+
+<br>
+
+<div class="svg-symbol Lucky-BP-PP_svg"></div>
+<div class="svg-symbol Lucky-BP_svg"></div>
+<div class="svg-symbol Lucky-PP_svg"></div>
+<div class="svg-symbol Lucky_svg"></div>
+
+<br>
+<div class="svg-symbol m-13_svg"></div>
+<div class="svg-symbol m-14_svg"></div>
+<div class="svg-symbol m-15_svg"></div>
+<div class="svg-symbol m-16_svg"></div>
+<div class="svg-symbol m-17_svg"></div>
+
+<br>
+<div class="svg-symbol Player-BP-PP_svg"></div>
+<div class="svg-symbol Player-BP_svg"></div>
+<div class="svg-symbol Player-PP_svg"></div>
+<div class="svg-symbol Player_svg"></div>
+
+<br>
+
+<div class="svg-symbol Player1-1_svg"></div>
+<div class="svg-symbol Player1-2_svg"></div>
+<div class="svg-symbol Player1-3_svg"></div>
+<div class="svg-symbol Player1-4_svg"></div>
+<div class="svg-symbol Player1-5_svg"></div>
+<div class="svg-symbol Player1-6_svg"></div>
+<div class="svg-symbol Player1-7_svg"></div>
+<div class="svg-symbol Player1-8_svg"></div>
+<div class="svg-symbol Player1-9_svg"></div>
+
+<br>
+<div class="svg-symbol Player1-BP-PP_svg"></div>
+<div class="svg-symbol Player1-BP_svg"></div>
+<div class="svg-symbol Player1-PP_svg"></div>
+<div class="svg-symbol Player1_svg"></div>
+
+<br>
+<div class="svg-symbol qq-36_svg"></div>
+<div class="svg-symbol qq-37_svg"></div>
+<br>
+
+<div class="svg-symbol qq-38_svg"></div>
+<div class="svg-symbol qq-39_svg"></div>
+
+<br>
+<div class="svg-symbol Red_svg"></div>
+<div class="svg-symbol Player4_svg"></div>
+
+<br>
+<div class="svg-symbol Small-Blue_svg"></div>
+<div class="svg-symbol Small-Red_svg"></div>
+
+<br>
+
+<div class="svg-symbol sz_svg"></div>
+<div class="svg-symbol sk_svg"></div>
+
+
+<br>
+<div class="svg-symbol Tie-BP-PP_svg"></div>
+<div class="svg-symbol Tie-BP_svg"></div>
+<div class="svg-symbol Tie-PP_svg"></div>
+<div class="svg-symbol Tie_svg"></div>
+
+<br>
+<div class="svg-symbol Tie1-1_svg"></div>
+<div class="svg-symbol Tie1-2_svg"></div>
+<div class="svg-symbol Tie1-3_svg"></div>
+<div class="svg-symbol Tie1-4_svg"></div>
+<div class="svg-symbol Tie1-5_svg"></div>
+<div class="svg-symbol Tie1-6_svg"></div>
+<div class="svg-symbol Tie1-7_svg"></div>
+<div class="svg-symbol Tie1-8_svg"></div>
+<div class="svg-symbol Tie1-9_svg"></div>
+
+<br>
+<div class="svg-symbol Tie1-BP-PP_svg"></div>
+<div class="svg-symbol Tie1-BP_svg"></div>
+<div class="svg-symbol Tie1-PP_svg"></div>
+<div class="svg-symbol Tie1_svg"></div>
+
+	<!-- <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="80" height="80"><rect x="0" y="0" width="80" height="80" fill="transparent" stroke="red" stroke-width="3" stroke-opacity="1"></rect></svg> -->
+	<!-- <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="80" height="80">
+		<rect x="0" y="0" width="80" height="80" fill="transparent" stroke="red" stroke-width="3" stroke-opacity="1"></rect>
+	</svg> -->
+	<div id="map_test"></div>
+
+	<br>
+	 <button onclick="L$.add('庄')">庄</button>
+	 <button onclick="L$.add('庄_庄对')">庄_庄对</button>
+	 <button onclick="L$.add('庄_闲对')">庄_闲对</button>
+	 <button onclick="L$.add('庄_庄对闲对')">庄_庄对闲对</button>
+	<br>
+
+	 <button onclick="L$.add('闲')">闲</button>
+	 <button onclick="L$.add('闲_庄对')">闲_庄对</button>
+	 <button onclick="L$.add('闲_闲对')">闲_闲对</button>
+	 <button onclick="L$.add('闲_庄对闲对')">闲_庄对闲对</button>
+	<br>
+
+	 <button onclick="L$.add('和')">和</button>
+	 <button onclick="L$.add('和_庄对')">和_庄对</button>
+	 <button onclick="L$.add('和_闲对')">和_闲对</button>
+	 <button onclick="L$.add('和_庄对闲对')">和_庄对闲对</button>
+	<br>
+	 <button onclick="L$.back()">退格</button>
+	 <button onclick="L$.del_all()">清空</button>
+	<p>珠盘路</p>
+	<div id="map_box" class="map_road"></div>
+	<p>大路</p>
+	<div id="map_big_road" class="map_road"></div>
+	<p>大眼路</p>
+	<div id="map_big_eye" class="map_road"></div>
+	<p>小路</p>
+	<div id="map_small_road" class="map_road"></div>
+	<p>小强路</p>
+	<div id="map_small_strong_road" class="map_road"></div>
+</body>
+
+</html>
